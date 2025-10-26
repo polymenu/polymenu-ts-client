@@ -14,6 +14,7 @@
           inherit system;
           config.allowUnfree = true;
         };
+        inherit (pkgs) lib stdenv;
       in {
         devShells.${system}.default =
           pkgs.mkShell
@@ -23,6 +24,10 @@
               nodejs
               deno
             ];
+            shellHook = lib.optionalString stdenv.isDarwin ''
+              unset DEVELOPER_DIR
+              unset SDKROOT
+            '';
           };
       }
     );

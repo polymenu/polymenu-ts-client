@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "polymenu": "./src/index.ts",
+    "polymenu/": "./src/"
+  }
+}

@@ -26,7 +26,7 @@ export class Keymap {
     );
   }
 
-  setMode = (mode: string | null) => {
+  setMode = (mode: string | null): void => {
     this.mode = mode;
   }
 
@@ -39,7 +39,7 @@ export class Keymap {
     return map
   }
 
-  set = (lhs: string, rhs: KeymapFn, mode: string | null = null) => {
+  set = (lhs: string, rhs: KeymapFn, mode: string | null = null): void => {
     const map = this.modeMapFor(mode);
     const lhsParts = lhs.toLowerCase().split("+");
     lhsParts.sort();

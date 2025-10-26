@@ -41,7 +41,7 @@ export class App<T extends Record<string, any> = Record<string, JsonValue>> {
    * to establish a session. This sets a session cookie that
    * allows your app to make requests to the polymenu server.
    */
-  static async establishSession() {
+  static async establishSession(): Promise<void> {
     const sessionRequest = new Request("/session", {
       method: "POST",
       headers: {
@@ -78,7 +78,7 @@ export class App<T extends Record<string, any> = Record<string, JsonValue>> {
    * @param values An array of (JSON-serializable) values to print.
    * @returns Promise that resolves when printing is done.
    */
-  print = async (values: JsonValue | JsonValue[]) => {
+  print = async (values: JsonValue | JsonValue[]): Promise<void> => {
     // Print endpoint always expects an array at the root
     if (!Array.isArray(values)) {
       values = [values]
@@ -123,7 +123,7 @@ export class App<T extends Record<string, any> = Record<string, JsonValue>> {
    * @returns Promise that resolves when the program has exited
    * (in practice, this will not resolve because the process will exit)
    */
-  close = async () => {
+  close = async (): Promise<void> => {
     const request = new Request(`${apiRoutePrefix}/close`, {
       method: "PUT",
     });

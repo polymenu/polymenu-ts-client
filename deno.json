@@ -1,6 +1,10 @@
 {
-  "imports": {
-    "polymenu": "./src/index.ts",
-    "polymenu/": "./src/"
+  "name": "@polymenu/client",
+  "version": "0.1.0",
+  "license": "MIT",
+  "exports": {
+    ".": "src/index.ts",
+    "./keymap": "src/keymap.ts",
+    "./util": "src/util.ts"
   }
 }
